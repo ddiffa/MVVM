@@ -1,4 +1,4 @@
-package com.example.koinexample.data
+package com.example.koinexample.data.remote
 
 import com.example.koinexample.data.model.MovieResponse
 import io.reactivex.Observable
@@ -21,7 +21,11 @@ interface MovieAPI {
             val okHttpClient = OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
-                .addInterceptor(makeLoggingInterceptor(true))
+                .addInterceptor(
+                    makeLoggingInterceptor(
+                        true
+                    )
+                )
                 .build()
             val retrofit = Retrofit.Builder()
                 .baseUrl("http://api.themoviedb.org/3/")

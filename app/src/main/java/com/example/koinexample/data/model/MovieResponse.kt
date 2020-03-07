@@ -1,5 +1,6 @@
 package com.example.koinexample.data.model
 
+import com.example.koinexample.data.local.entity.MovieEntity
 import com.google.gson.annotations.SerializedName
 
 data class MovieResponse(
@@ -14,7 +15,7 @@ data class MovieResponse(
 	val totalPages: Int? = null,
 
 	@field:SerializedName("results")
-	val results: List<ResultsItem?>? = null,
+	val results: List<MovieEntity?>? = null,
 
 	@field:SerializedName("total_results")
 	val totalResults: Int? = null
