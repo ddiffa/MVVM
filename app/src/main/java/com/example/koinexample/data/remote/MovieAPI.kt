@@ -2,6 +2,7 @@ package com.example.koinexample.data.remote
 
 import com.example.koinexample.data.model.MovieResponse
 import io.reactivex.Observable
+import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,7 +15,7 @@ import java.util.concurrent.TimeUnit
 interface MovieAPI {
 
     @GET("movie/now_playing")
-    fun getNowPlaying(@Query("api_key") apiKey: String): Observable<MovieResponse>
+    fun getNowPlaying(@Query("api_key") apiKey: String): Single<MovieResponse>
 
     companion object Factory {
         fun create(): MovieAPI {
