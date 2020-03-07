@@ -2,38 +2,41 @@ package com.example.koinexample.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.koinexample.util.Converter
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "now_playingdb")
 data class MovieEntity(
     @PrimaryKey(autoGenerate = true)
     val uid: Long,
-    @field:SerializedName("id")
-    val id: Int,
-    @field:SerializedName("overview")
+    @SerializedName("id")
+    val id: Long,
+    @SerializedName("overview")
     val overview: String,
-    @field:SerializedName("original_language")
+    @SerializedName("original_language")
     val originalLanguage: String,
-    @field:SerializedName("original_title")
+    @SerializedName("original_title")
     val originalTitle: String,
-    @field:SerializedName("video")
+    @SerializedName("video")
     val video: Boolean,
-    @field:SerializedName("title")
+    @SerializedName("title")
     val title: String,
-    @field:SerializedName("genre_ids")
-    val genreIds: List<Int>,
-    @field:SerializedName("poster_path")
+    @TypeConverters(Converter::class)
+    @SerializedName("genre_ids")
+    val genreIds: List<String>,
+    @SerializedName("poster_path")
     val posterPath: String,
-    @field:SerializedName("backdrop_path")
+    @SerializedName("backdrop_path")
     val backdropPath: String,
-    @field:SerializedName("release_date")
+    @SerializedName("release_date")
     val releaseDate: String,
-    @field:SerializedName("popularity")
+    @SerializedName("popularity")
     val popularity: Double,
-    @field:SerializedName("vote_average")
-    val voteAverage: Int,
-    @field:SerializedName("adult")
+    @SerializedName("vote_average")
+    val voteAverage: Double,
+    @SerializedName("adult")
     val adult: Boolean,
-    @field:SerializedName("vote_count")
-    val voteCount: Int
+    @SerializedName("vote_count")
+    val voteCount: Double
 )
